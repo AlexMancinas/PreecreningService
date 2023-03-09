@@ -11,7 +11,6 @@ namespace Application.Features.Phone.Commands.CreatePhoneCommand
         public string PhoneNumber { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 
     public class CreatePhoneCommandHandler : IRequestHandler<CreatePhoneCommand, Domain.Entities.Phone>

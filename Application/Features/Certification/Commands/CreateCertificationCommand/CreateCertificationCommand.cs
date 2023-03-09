@@ -13,7 +13,7 @@ namespace Application.Features.Certification.Commands.CreateCertificationCommand
         public string CertificationDescription { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
+
     }
     public class CreateCertificationCommandHandler : IRequestHandler<CreateCertificationCommand, Domain.Entities.Certification>
     {

@@ -12,7 +12,6 @@ namespace Application.Features.Skill.Commands.CreateSkillCommand
         public string SkillDescription { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 
     public class CreateSkillCommandHandler : IRequestHandler<CreateSkillCommand, Domain.Entities.Skill>

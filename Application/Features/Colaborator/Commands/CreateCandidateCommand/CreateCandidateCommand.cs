@@ -8,22 +8,15 @@ namespace Application.Features.Colaborator.Commands.CreateCandidateCommand
 {
     public class CreateCandidateCommand : IRequest<Response<Guid>>
     {
-        //public Guid Id { get; set; }
         public string FullName { get; set; }
         public string Client { get; set; }
-        //public ICollection<Domain.Entities.Email> Emails { get; set; }
-        //public ICollection<Phone> Phones { get; set; }
         public string Recruiter { get; set; }
-        //public ICollection<Certification> Certifications { get; set; }
         public string Location { get; set; }
         public string EducationLevel { get; set; }
         public string CurrentPosition { get; set; }
         public float SalaryExpectations { get; set; }
         public float CurrentSalaryGross { get; set; }
-        //public ICollection<Skill> Skills { get; set; }
         public string Experience { get; set; }
-        //public ICollection<Language> Languages { get; set; }
-        //public ICollection<QuestionsAnswer> QuestionsAnswers { get; set; }
         public string Notes { get; set; }
         public string Img { get; set; }
         public string CV { get; set; }
@@ -31,7 +24,6 @@ namespace Application.Features.Colaborator.Commands.CreateCandidateCommand
         public DateTime DateLastModify { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
     
     public class Handler : IRequestHandler<CreateCandidateCommand, Response<Guid>>

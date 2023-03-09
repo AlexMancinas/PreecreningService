@@ -11,7 +11,6 @@ namespace Application.Features.QuestionsAnswer.Commands.CreateQuestionsAnswerCom
         public string Answer { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 
     public class CreateQuestionsAnswerCommandHandler : IRequestHandler<CreateQuestionsAnswerCommand, Domain.Entities.QuestionsAnswer>

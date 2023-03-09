@@ -7,15 +7,14 @@ namespace Application.Features.Email.Commands.CreateEmailCommnad
 {
     public class CreateEmailCommand : IRequest<Response<Guid>>
     {
-        //public Guid Id { get; set; }
         public string Email { get; set; }
         public Guid CandidateId { get; set; }
         public Guid UserModifierId { get; set; }
         public DateTime DateLastModify { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
+    
 
     public class Handler : IRequestHandler<CreateEmailCommand, Response<Guid>>
     {

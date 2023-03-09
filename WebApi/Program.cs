@@ -1,5 +1,6 @@
 using Persistence;
 using Application;
+using Shared;
 using System.Text.Json.Serialization;
 
 namespace WebApi
@@ -14,6 +15,7 @@ namespace WebApi
             // Add services to the container.
             builder.Services.AddPersitence(configuration);
             builder.Services.AddApplicaionLayer(configuration);
+            builder.Services.AddSharedInfraestructure();
             builder.Services.AddControllers();
             builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

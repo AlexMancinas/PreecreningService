@@ -13,7 +13,6 @@ namespace Application.Features.Language.Commands.CreateLanguageCommand
         public string LanguageLevel { get; set; }
         public bool State { get; set; }
         public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 
     public class CreateLanguageCommandHandler : IRequestHandler<CreateLanguageCommand, Domain.Entities.Language>
