@@ -1,5 +1,6 @@
 ﻿
 using Application.Interfaces;
+using Application.Specifications;
 using Application.Wrappers;
 using AutoMapper;
 using Domain.Entities;
@@ -34,7 +35,8 @@ namespace Application.Features.Colaborator.Queries.GetCandidateById
 
             public async Task<Response<Candidate>> HandleProcess(GetCandidateByIdQuery request, CancellationToken cancellationToken)
             {
-                var candidate = await _repositoryAsync.GetByIdAsync(request.Id);
+                var specification = new CandidateWithRelationedDataSpecification(request.Id);
+                var candidate = await _repositoryAsync.GetBySpecAsync(specification);
 
                 if(candidate == null)
                 {

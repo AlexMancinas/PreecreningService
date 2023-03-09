@@ -1,5 +1,10 @@
-﻿using Application.DTOs;
+﻿using Application.Features.Certification.Commands.CreateCertificationCommand;
 using Application.Features.Colaborator.Commands.CreateCandidateCommand;
+using Application.Features.Email.Commands.CreateEmailCommnad;
+using Application.Features.Language.Commands.CreateLanguageCommand;
+using Application.Features.Phone.Commands.CreatePhoneCommand;
+using Application.Features.QuestionsAnswer.Commands.CreateQuestionsAnswerCommand;
+using Application.Features.Skill.Commands.CreateSkillCommand;
 using AutoMapper;
 using Domain.Entities;
 
@@ -14,7 +19,19 @@ namespace Application.Mappings
             //#endregion
 
             #region Commands
-            CreateMap<CreateCandidateCommand, Domain.Entities.Candidate>();
+            CreateMap<CreateCandidateCommand, Candidate>();
+
+            CreateMap<CreateEmailCommand, Email>();
+
+            CreateMap<CreateCertificationCommand, Certification>();
+
+            CreateMap<CreateLanguageCommand, Language>();
+
+            CreateMap<CreatePhoneCommand, Phone>();
+
+            CreateMap<CreateQuestionsAnswerCommand, QuestionsAnswer>();
+
+            CreateMap<CreateSkillCommand, Skill>();
             #endregion
         }
     }

@@ -11,20 +11,23 @@ namespace Application.Features.Colaborator.Commands.UpdateCandidateCommand
         public Guid Id { get; set; }
         public string FullName { get; set; }
         public string Client { get; set; }
-        public string Email { get; set; } //Change this to list
-        public string Phone { get; set; } //Change this to list
+        //public ICollection<Email> Emails { get; set; }
+        //public ICollection<Phone> Phones { get; set; }
         public string Recruiter { get; set; }
-        public string Certification { get; set; } //Change this to list
+        //public ICollection<Certification> Certifications { get; set; }
         public string Location { get; set; }
         public string EducationLevel { get; set; }
         public string CurrentPosition { get; set; }
         public float SalaryExpectations { get; set; }
         public float CurrentSalaryGross { get; set; }
-        public string Skill { get; set; } //Change this to list
+        //public ICollection<Skill> Skills { get; set; }
         public string Experience { get; set; }
-        public string Language { get; set; } //Change this to list
-        public string QuestionAnswer { get; set; } //Change this to list
+        //public ICollection<Language> Languages { get; set; }
+        //public ICollection<QuestionsAnswer> QuestionsAnswers { get; set; }
         public string Notes { get; set; }
+        public string Img { get; set; }
+        public string CV { get; set; }
+
 
     }
 
@@ -61,20 +64,22 @@ namespace Application.Features.Colaborator.Commands.UpdateCandidateCommand
             {
                 candidate.FullName = request.FullName;
                 candidate.Client = request.FullName;
-                candidate.Email = request.Email;
-                candidate.Phone = request.Phone;
+                //candidate.Email = request.Email;
+                //candidate.Phone = request.Phone;
                 candidate.Recruiter = request.Recruiter;
-                candidate.Certification = request.Certification;
+                //candidate.Certification = request.Certification;
                 candidate.Location = request.Location;
                 candidate.EducationLevel = request.EducationLevel;
                 candidate.CurrentPosition = request.CurrentPosition;
                 candidate.SalaryExpectations = request.SalaryExpectations;
                 candidate.CurrentSalaryGross = request.CurrentSalaryGross;
-                candidate.Skill = request.Skill;
+                //candidate.Skill = request.Skill;
                 candidate.Experience = request.Experience;
-                candidate.Language = request.Language;
-                candidate.QuestionAnswer = request.QuestionAnswer;
+                //candidate.Language = request.Language;
+                //candidate.QuestionAnswer = request.QuestionAnswer;
                 candidate.Notes = request.Notes;
+                candidate.CV = request.CV;
+                candidate.Img = request.Img;
 
                 await _repositoryAsync.UpdateAsync(candidate);
 

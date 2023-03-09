@@ -8,22 +8,22 @@ namespace Application.Features.Colaborator.Commands.CreateCandidateCommand
 {
     public class CreateCandidateCommand : IRequest<Response<Guid>>
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public string FullName { get; set; }
         public string Client { get; set; }
-        public string Email { get; set; } //Change this to list
-        public string Phone { get; set; } //Change this to list
+        //public ICollection<Domain.Entities.Email> Emails { get; set; }
+        //public ICollection<Phone> Phones { get; set; }
         public string Recruiter { get; set; }
-        public string Certification { get; set; } //Change this to list
+        //public ICollection<Certification> Certifications { get; set; }
         public string Location { get; set; }
         public string EducationLevel { get; set; }
         public string CurrentPosition { get; set; }
         public float SalaryExpectations { get; set; }
         public float CurrentSalaryGross { get; set; }
-        public string Skill { get; set; } //Change this to list
+        //public ICollection<Skill> Skills { get; set; }
         public string Experience { get; set; }
-        public string Language { get; set; } //Change this to list
-        public string QuestionAnswer { get; set; } //Change this to list
+        //public ICollection<Language> Languages { get; set; }
+        //public ICollection<QuestionsAnswer> QuestionsAnswers { get; set; }
         public string Notes { get; set; }
         public string Img { get; set; }
         public string CV { get; set; }

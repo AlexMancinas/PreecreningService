@@ -5,7 +5,6 @@ using Application.Features.Colaborator.Queries.GetAllCandidates;
 using Application.Features.Colaborator.Queries.GetCandidateById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static Application.Features.Colaborator.Commands.CreateCandidateCommand.CreateCandidateCommand;
 
 namespace WebApi.Controllers
 {
@@ -15,11 +14,8 @@ namespace WebApi.Controllers
     {
         private IMediator _mediator;
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator;
-
-        public CandidateController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+   
+    
 
         [HttpGet("/GetAllCandidates")]
         public async Task<IActionResult> GetAllCandidates()
