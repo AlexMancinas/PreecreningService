@@ -1,4 +1,5 @@
 ﻿using Application.Features.Certification.Commands.CreateCertificationCommand;
+using Application.Features.Certification.Queries.GetAllCertificationsQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,11 @@ namespace WebApi.Controllers
             return Ok(response);
         }
 
-
+        [HttpGet("/GetAllCertifications")]
+        public async Task<IActionResult> GetAllCertifications()
+        {
+            var response = await _mediator.Send(new GetAllCertificationsQuery());
+            return Ok(response);
+        }
     }
 }
