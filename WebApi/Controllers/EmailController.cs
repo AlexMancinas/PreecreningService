@@ -1,4 +1,6 @@
-﻿using Application.Features.Email.Commands.CreateEmailCommnad;
+﻿using Application.Features.Certification.Commands.LogicDeleteCertificationCommand;
+using Application.Features.Email.Commands.CreateEmailCommnad;
+using Application.Features.Email.Commands.LogicDeleteEmailCommand;
 using Application.Features.Email.Queries.GetAllEmailsQuery;
 using Application.Features.Email.Queries.GetEmailsByCanidateIdQyery;
 using MediatR;
@@ -12,7 +14,7 @@ namespace WebApi.Controllers
     {
         private IMediator _mediator;
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService(typeof(IMediator)) as IMediator;
-        
+
 
         [HttpPost("/createEmail")]
         public async Task<IActionResult> CreateEmail(CreateEmailCommand command)
@@ -33,6 +35,27 @@ namespace WebApi.Controllers
         {
             var query = new GetEmailsByCandidateIdQuery { CandidateId = CanidateId };
             var response = await Mediator.Send(query);
+            return Ok(response);
+        }
+
+        //[HttpPut("/UpdateEmail/{id}")]
+        //public async Task<IActionResult> UpdateEmail(Guid id, UpdateEmailCommand command)
+        //{
+        //    if (id != command.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    var response = await Mediator.Send(command);
+        //    return Ok(response);
+        //}
+
+
+        //Fix this endpoint
+        [HttpPut("/DeleteEmail/{id}")]
+        public async Task<IActionResult> DeleteEmail(Guid id)
+        {
+            var response = await _mediator.Send(new LogicDeleteEmailCommand { Id = id });
             return Ok(response);
         }
     }

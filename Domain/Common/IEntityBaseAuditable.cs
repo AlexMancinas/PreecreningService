@@ -2,7 +2,7 @@
 
 namespace Domain.Common
 {
-    public interface IEntityBaseAuditable<TKey, TUserKey> : IEntityBase<TKey, TUserKey>
+    public interface IEntityBaseAuditable<TKey, TUserKey> 
     {
         public DateTime? ModifyDate { get; set; }
         public TUserKey? ModifiedBy { get; set; } 

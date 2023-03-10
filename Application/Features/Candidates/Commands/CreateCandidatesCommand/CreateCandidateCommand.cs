@@ -20,18 +20,16 @@ namespace Application.Features.Colaborator.Commands.CreateCandidateCommand
         public string Notes { get; set; }
         public string Img { get; set; }
         public string CV { get; set; }
-        public Guid UserModifierId { get; set; }
-        public DateTime DateLastModify { get; set; }
-        public bool State { get; set; }
-        public Guid UserCreatorId { get; set; }
+       
+    
     }
     
     public class Handler : IRequestHandler<CreateCandidateCommand, Response<Guid>>
     {
-        private readonly IRepositoryAsync<Candidate> _repositoryAsync;
+        private readonly IRepositoryAsync<Domain.Entities.Candidate> _repositoryAsync;
         private readonly IMapper _mapper;
 
-        public Handler(IMapper mapper, IRepositoryAsync<Candidate> repositoryAsync)
+        public Handler(IMapper mapper, IRepositoryAsync<Domain.Entities.Candidate> repositoryAsync)
         {
             _mapper = mapper;
             _repositoryAsync = repositoryAsync;
@@ -49,7 +47,7 @@ namespace Application.Features.Colaborator.Commands.CreateCandidateCommand
 
         public async Task<Response<Guid>> HandleProcess(CreateCandidateCommand request, CancellationToken cancellationToken)
         {
-            var candidate = _mapper.Map<Candidate>(request);
+            var candidate = _mapper.Map<Domain.Entities.Candidate>(request);
             var data = await _repositoryAsync.AddAsync(candidate);
 
             return new Response<Guid>(data.Id);

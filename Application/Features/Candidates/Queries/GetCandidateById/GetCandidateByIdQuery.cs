@@ -8,22 +8,22 @@ using MediatR;
 
 namespace Application.Features.Colaborator.Queries.GetCandidateById
 {
-    public class GetCandidateByIdQuery : IRequest<Response<Candidate>>
+    public class GetCandidateByIdQuery : IRequest<Response<Domain.Entities.Candidate>>
     {
         public Guid Id { get; set; }
 
-        public class GetCandidateByIdQueryHandler : IRequestHandler<GetCandidateByIdQuery, Response<Candidate>>
+        public class GetCandidateByIdQueryHandler : IRequestHandler<GetCandidateByIdQuery, Response<Domain.Entities.Candidate>>
         {
-            private readonly IRepositoryAsync<Candidate> _repositoryAsync; 
+            private readonly IRepositoryAsync<Domain.Entities.Candidate> _repositoryAsync; 
             private readonly IMapper _mapper;
 
-            public GetCandidateByIdQueryHandler(IMapper mapper, IRepositoryAsync<Candidate> repositoryAsync)
+            public GetCandidateByIdQueryHandler(IMapper mapper, IRepositoryAsync<Domain.Entities.Candidate> repositoryAsync)
             {
                 _mapper = mapper;
                 _repositoryAsync = repositoryAsync;
             }
 
-            public  Task<Response<Candidate>> Handle(GetCandidateByIdQuery request, CancellationToken cancellationToken)
+            public  Task<Response<Domain.Entities.Candidate>> Handle(GetCandidateByIdQuery request, CancellationToken cancellationToken)
             {
 
                 if (request == null)
@@ -33,7 +33,7 @@ namespace Application.Features.Colaborator.Queries.GetCandidateById
                 return HandleProcess(request, cancellationToken);
             }
 
-            public async Task<Response<Candidate>> HandleProcess(GetCandidateByIdQuery request, CancellationToken cancellationToken)
+            public async Task<Response<Domain.Entities.Candidate>> HandleProcess(GetCandidateByIdQuery request, CancellationToken cancellationToken)
             {
                 var specification = new CandidateWithRelationedDataSpecification(request.Id);
                 var candidate = await _repositoryAsync.GetBySpecAsync(specification);
@@ -44,7 +44,7 @@ namespace Application.Features.Colaborator.Queries.GetCandidateById
                 }
                 else
                 {
-                    return new Response<Candidate>(candidate);
+                    return new Response<Domain.Entities.Candidate>(candidate);
                 }
 
             }

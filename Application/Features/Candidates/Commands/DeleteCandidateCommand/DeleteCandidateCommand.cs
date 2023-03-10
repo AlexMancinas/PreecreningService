@@ -1,13 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Wrappers;
 using AutoMapper;
-using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Colaborator.Commands.DeleteCandidateCommand
 {
@@ -19,10 +13,10 @@ namespace Application.Features.Colaborator.Commands.DeleteCandidateCommand
 
     public class DeleteCandidateCommandHandler : IRequestHandler<DeleteCandidateCommand, Response<Guid>>
     {
-        private readonly IRepositoryAsync<Candidate> _repositoryAsync;
+        private readonly IRepositoryAsync<Domain.Entities.Candidate> _repositoryAsync;
         private readonly IMapper _mapper;
 
-        public DeleteCandidateCommandHandler(IMapper mapper, IRepositoryAsync<Candidate> repositoryAsync)
+        public DeleteCandidateCommandHandler(IMapper mapper, IRepositoryAsync<Domain.Entities.Candidate> repositoryAsync)
         {
             _mapper = mapper;
             _repositoryAsync = repositoryAsync;

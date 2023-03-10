@@ -1,8 +1,9 @@
 ﻿using Atos.Core.Abstractions;
+using ATOS.Resource.Common.Abstraction;
 
 namespace Domain.Entities
 {
-    public class Candidate : IEntityBaseAuditable<Guid, Guid>
+    public class Candidate : EntityBaseAuditable<Guid, Guid>
     {
         public Guid Id { get; set; }
         public string FullName { get; set; }
@@ -23,11 +24,7 @@ namespace Domain.Entities
         public ICollection<Certification> Certifications { get; set; }
         public ICollection<QuestionsAnswer> QuestionsAnswers { get; set; }
         public ICollection<Language> Languages { get; set; }
-        public Guid UserModifierId { get ; set; }
-        public DateTime DateLastModify { get; set; }
-        public bool State { get; set; }
-        public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
+    
 
         public Candidate()
         {

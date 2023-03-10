@@ -33,10 +33,10 @@ namespace Application.Features.Colaborator.Commands.UpdateCandidateCommand
 
     public class UpdateCandidateCommandHandler : IRequestHandler<UpdateCandidateCommand, Response<Guid>>
     {
-        private readonly IRepositoryAsync<Candidate> _repositoryAsync;
+        private readonly IRepositoryAsync<Domain.Entities.Candidate> _repositoryAsync;
         private readonly IMapper _mapper;
 
-        public UpdateCandidateCommandHandler(IMapper mapper, IRepositoryAsync<Candidate> repositoryAsync)
+        public UpdateCandidateCommandHandler(IMapper mapper, IRepositoryAsync<Domain.Entities.Candidate> repositoryAsync)
         {
             _mapper = mapper;
             _repositoryAsync = repositoryAsync;

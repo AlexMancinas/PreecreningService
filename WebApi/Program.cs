@@ -2,6 +2,7 @@ using Persistence;
 using Application;
 using Shared;
 using System.Text.Json.Serialization;
+using WebApi.Extensions;
 
 namespace WebApi
 {
@@ -36,6 +37,7 @@ namespace WebApi
 
             app.UseAuthorization();
 
+            app.useErrorHandlingMiddleware();
 
             app.MapControllers();
 

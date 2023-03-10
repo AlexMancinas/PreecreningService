@@ -1,15 +1,13 @@
 ﻿using Atos.Core.Abstractions;
+using ATOS.Resource.Common.Abstraction;
 
 namespace Domain.Entities
 {
-    public class Phone : IEntityBase<Guid, Guid>
+    public class Phone : EntityBaseAuditable<Guid, Guid>
     {
         public Guid Id { get; set; }
         public Guid CandidateId { get; set; }
         public string PhoneNumber { get; set; }
-        public bool State { get; set; }
-        public Guid UserCreatorId { get; set; }
-        public DateTime CreatedDate { get; set; }
         public Candidate Candidate { get; set; }
  
     }
